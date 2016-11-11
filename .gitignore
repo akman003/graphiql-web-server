@@ -1,0 +1,8 @@
+public/index.html
+npm-debug.log
+.eslintrc.json
+
+public/dist
+node_modules
+.vscode
+

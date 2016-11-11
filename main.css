@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+#container {
+  color: #141823;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 14px;
+}
