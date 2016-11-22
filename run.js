@@ -26,7 +26,7 @@ const config = {
   graiqlCSS: '../../node_modules/graphiql/graphiql.css',
 };
 
-const tasks = new Map(); // The collection of automation tasks ('clean', 'build', 'publish', etc.)
+const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 
 function run(task) {
   const start = new Date();
@@ -93,20 +93,6 @@ tasks.set('build', () => {
     .then(() => run('bundle'))
     .then(() => run('html'))
     .then(() => run('sitemap'));
-});
-
-//
-// Build and publish the website
-// -----------------------------------------------------------------------------
-tasks.set('publish', () => {
-  const firebase = require('firebase-tools');
-  return run('build')
-    .then(() => firebase.login({ nonInteractive: false }))
-    .then(() => firebase.deploy({
-      project: config.project,
-      cwd: __dirname,
-    }))
-    .then(() => { setTimeout(() => process.exit()); });
 });
 
 //
